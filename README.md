@@ -1,5 +1,5 @@
 # Censo Agrícola
 > Integrantes
-> Jonatas Natan
-> João Antônio
-> José Henrique
+Jonatas Natan,
+João Antônio,
+José Henrique
