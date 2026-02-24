@@ -12,7 +12,7 @@ class Base(DeclarativeBase):
 db = SQLAlchemy(model_class=Base)
 db.init_app(app)
 
-DATABASE = "censo_agricola.db"
+DATABASE = "censo_agricola"
 
 
 def get_conn():

@@ -1,0 +1,4 @@
+2026-02-24 09:27:25,449 - INFO - GET request received for /agro endpoint
+2026-02-24 09:27:25,460 - ERROR - Database error occurred: connection to server at "localhost" (127.0.0.1), port 5434 failed: FATAL:  database "censo_agricola.db" does not exist
+
+2026-02-24 09:27:57,087 - INFO - GET request received for /agro endpoint
