@@ -5,11 +5,16 @@ from helpers.database import db, get_conn
 from helpers.logging import logger
 
 from resources.HomeResources import HomeResources
-from resources.AgroResources import AgroResources
+from resources.ProdutorResources import ProdutorResources
+from resources.PropriedadeResources import PropriedadeResources
+from resources.TalhaoResources import TalhaoResources
+from resources.SafraResources import SafraResources
 
 api.add_resource(HomeResources, '/')
-api.add_resource(AgroResources, '/agro')
-
+api.add_resource(ProdutorResources, '/produtores')
+api.add_resource(PropriedadeResources, '/propriedades')
+api.add_resource(TalhaoResources, '/talhoes')
+api.add_resource(SafraResources, '/safras')
 
 with app.app_context():
     db.create_all()

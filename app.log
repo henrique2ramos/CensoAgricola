@@ -2,3 +2,31 @@
 2026-02-24 09:27:25,460 - ERROR - Database error occurred: connection to server at "localhost" (127.0.0.1), port 5434 failed: FATAL:  database "censo_agricola.db" does not exist
 
 2026-02-24 09:27:57,087 - INFO - GET request received for /agro endpoint
+2026-02-24 09:31:51,642 - INFO - GET request received for /agro endpoint
+2026-02-24 15:48:35,525 - INFO - GET request received for /agro endpoint
+2026-02-24 15:54:04,849 - INFO - POST request received for /agro endpoint
+2026-02-24 15:54:22,650 - INFO - GET request received for /agro endpoint
+2026-02-24 15:56:29,040 - INFO - GET request received for /agro endpoint
+2026-02-24 15:58:01,641 - INFO - GET request received for /agro endpoint
+2026-02-24 15:58:43,412 - INFO - GET request received for /agro endpoint
+2026-02-24 16:00:22,009 - INFO - GET request received for /agro endpoint
+2026-02-24 16:01:44,573 - INFO - POST request received for /produtor endpoint
+2026-02-24 16:01:51,279 - INFO - GET request received for /agro endpoint
+2026-02-24 16:14:05,705 - INFO - GET request received for /propriedades endpoint
+2026-02-24 16:14:05,724 - ERROR - Database error occurred: column "area_preservada_ha" does not exist
+LINE 1: ...r, numero_ccir, municipio, estado, area_total_ha, area_prese...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "propriedades.area_preservacao_ha".
+
+2026-02-24 16:16:00,333 - INFO - GET request received for /propriedades endpoint
+2026-02-24 16:16:00,351 - ERROR - Database error occurred: column "area_preservada_ha" does not exist
+LINE 1: ...r, numero_ccir, municipio, estado, area_total_ha, area_prese...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "propriedades.area_preservacao_ha".
+
+2026-02-24 16:19:03,936 - INFO - GET request received for /propriedades endpoint
+2026-02-25 08:29:11,431 - INFO - GET request received for /talhoes endpoint
+2026-02-25 08:29:12,665 - INFO - GET request received for /talhoes endpoint
+2026-02-25 08:40:06,270 - INFO - GET request received for /propriedades endpoint
+2026-02-25 08:40:08,961 - INFO - GET request received for /safras endpoint
+2026-02-25 08:40:24,987 - INFO - GET request received for /agro endpoint
