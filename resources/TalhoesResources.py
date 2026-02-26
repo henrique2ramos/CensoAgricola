@@ -53,7 +53,7 @@ class TalhoesResources(Resource):
                 VALUES (%s, %s, %s, %s) RETURNING id
             """
             cursor.execute(statement, (
-                talhao_data['propriedade_id'],  # Agora é Integer
+                talhao_data['propriedade_id'],  
                 talhao_data['identificacao'],
                 talhao_data['area_cultivavel_ha'],
                 talhao_data.get('tipo_solo')

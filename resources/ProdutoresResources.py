@@ -121,7 +121,6 @@ class ProdutorResources(Resource):
         conn = None
         try:
             data = request.get_json()
-            # Valida os dados, mas permite atualização parcial ou completa
             produtor_data = ProdutorSchema().load(data, partial=True)
 
             conn = get_conn()

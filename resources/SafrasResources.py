@@ -15,7 +15,6 @@ class SafrasResources(Resource):
         try:
             conn = get_conn()
             cursor = conn.cursor()
-            # Listando colunas explicitamente para evitar erro de índice
             cursor.execute(
                 "SELECT id, talhao_id, cultura, variedade, data_plantio_estimada, data_colheita_estimada, expectativa_producao FROM safras")
             resultset = cursor.fetchall()
@@ -56,7 +55,7 @@ class SafrasResources(Resource):
                 VALUES (%s, %s, %s, %s, %s, %s) RETURNING id
             """
             cursor.execute(statement, (
-                safra_data['talhao_id'],  # Agora é Integer
+                safra_data['talhao_id'],
                 safra_data['cultura'],
                 safra_data.get('variedade'),
                 safra_data.get('data_plantio_estimada'),
