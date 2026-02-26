@@ -1,19 +1,15 @@
-import uuid
-from marshmallow import Schema, fields, validate, post_load, ValidationError
+from marshmallow import Schema, fields, validate
 from sqlalchemy.orm import Mapped, mapped_column
-from sqlalchemy import String, Numeric, ForeignKey
-from sqlalchemy.dialects.postgresql import UUID
-
+from sqlalchemy import String, Numeric, ForeignKey, Integer
 from helpers.database import db
 
 
 class Propriedade(db.Model):
     __tablename__ = 'propriedades'
 
-    id: Mapped[uuid.UUID] = mapped_column(
-        UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-
-    produtor_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey(
+    id: Mapped[int] = mapped_column(
+        Integer, primary_key=True, autoincrement=True)
+    produtor_id: Mapped[int] = mapped_column(Integer, ForeignKey(
         'produtores.id', ondelete='CASCADE'), nullable=False)
 
     nome_propriedade: Mapped[str] = mapped_column(String(255), nullable=False)
@@ -25,7 +21,6 @@ class Propriedade(db.Model):
 
     area_total_ha: Mapped[float] = mapped_column(
         Numeric(12, 2), nullable=False)
-    # Padronizado para 'preservacao' como no SQL
     area_preservacao_ha: Mapped[float] = mapped_column(
         Numeric(12, 2), default=0.0)
     area_infraestrutura_ha: Mapped[float] = mapped_column(
@@ -51,8 +46,8 @@ class Propriedade(db.Model):
 
 
 class PropriedadeSchema(Schema):
-    id = fields.UUID(dump_only=True)
-    produtor_id = fields.UUID(required=True)
+    id = fields.Int(dump_only=True)
+    produtor_id = fields.Int(required=True)
     nome_propriedade = fields.Str(
         required=True, validate=validate.Length(max=255))
     numero_car = fields.Str(validate=validate.Length(max=100), allow_none=True)
@@ -61,10 +56,8 @@ class PropriedadeSchema(Schema):
     estado = fields.Str(validate=validate.Length(equal=2), allow_none=True)
 
     area_total_ha = fields.Float(required=True)
-    # Ajustado para bater com o Model
     area_preservacao_ha = fields.Float(dump_default=0.0, load_default=0.0)
     area_infraestrutura_ha = fields.Float(dump_default=0.0, load_default=0.0)
 
     latitude = fields.Float(allow_none=True)
     longitude = fields.Float(allow_none=True)
-

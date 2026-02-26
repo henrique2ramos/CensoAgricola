@@ -1,19 +1,15 @@
-import uuid
 from marshmallow import Schema, fields, validate
 from sqlalchemy.orm import Mapped, mapped_column
-from sqlalchemy import String, Numeric, ForeignKey
-from sqlalchemy.dialects.postgresql import UUID
-
+from sqlalchemy import String, Numeric, ForeignKey, Integer
 from helpers.database import db
 
 
 class Safra(db.Model):
     __tablename__ = 'safras'
 
-    id: Mapped[uuid.UUID] = mapped_column(
-        UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-
-    talhao_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey(
+    id: Mapped[int] = mapped_column(
+        Integer, primary_key=True, autoincrement=True)
+    talhao_id: Mapped[int] = mapped_column(Integer, ForeignKey(
         'talhoes.id', ondelete='CASCADE'), nullable=False)
 
     cultura: Mapped[str] = mapped_column(String(255), nullable=False)
@@ -39,8 +35,8 @@ class Safra(db.Model):
 
     def to_dict(self):
         return {
-            'id': str(self.id),
-            'talhao_id': str(self.talhao_id),
+            'id': self.id,
+            'talhao_id': self.talhao_id,
             'cultura': self.cultura,
             'variedade': self.variedade,
             'data_plantio_estimada': self.data_plantio_estimada,
@@ -50,8 +46,8 @@ class Safra(db.Model):
 
 
 class SafraSchema(Schema):
-    id = fields.UUID(dump_only=True)
-    talhao_id = fields.UUID(required=True)
+    id = fields.Int(dump_only=True)
+    talhao_id = fields.Int(required=True)
     cultura = fields.Str(required=True, validate=validate.Length(max=255))
     variedade = fields.Str(validate=validate.Length(max=255), allow_none=True)
     data_plantio_estimada = fields.Str(
