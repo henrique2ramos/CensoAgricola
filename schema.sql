@@ -15,8 +15,8 @@ CREATE TABLE propriedades (
     nome_propriedade VARCHAR(255) NOT NULL,
     numero_car VARCHAR(100) UNIQUE, -- Cadastro Ambiental Rural
     numero_ccir VARCHAR(50),
-    municipio VARCHAR(100),
-    estado CHAR(2),
+    codigo_municipio CHAR(7),
+    codigo_uf CHAR(2),
     area_total_ha NUMERIC(12, 2) NOT NULL,
     area_preservacao_ha NUMERIC(12, 2) DEFAULT 0,
     area_infraestrutura_ha NUMERIC(12, 2) DEFAULT 0,
@@ -30,13 +30,13 @@ CREATE TABLE talhoes (
     propriedade_id INTEGER REFERENCES propriedades(id) ON DELETE CASCADE, -- Referência numérica
     identificacao VARCHAR(50), 
     area_cultivavel_ha NUMERIC(12, 2) NOT NULL,
+    cultura VARCHAR(100) NOT NULL,
     tipo_solo VARCHAR(50) 
 );
 
 CREATE TABLE safras (
     id SERIAL PRIMARY KEY,
     talhao_id INTEGER REFERENCES talhoes(id), -- Referência numérica
-    cultura VARCHAR(100) NOT NULL, 
     variedade VARCHAR(100),
     data_plantio_estimada DATE,
     data_colheita_estimada DATE,

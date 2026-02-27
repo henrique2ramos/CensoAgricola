@@ -1,0 +1,132 @@
+2026-02-24 09:27:25,449 - INFO - GET request received for /agro endpoint
+2026-02-24 09:27:25,460 - ERROR - Database error occurred: connection to server at "localhost" (127.0.0.1), port 5434 failed: FATAL:  database "censo_agricola.db" does not exist
+
+2026-02-24 09:27:57,087 - INFO - GET request received for /agro endpoint
+2026-02-24 09:31:51,642 - INFO - GET request received for /agro endpoint
+2026-02-24 15:48:35,525 - INFO - GET request received for /agro endpoint
+2026-02-24 15:54:04,849 - INFO - POST request received for /agro endpoint
+2026-02-24 15:54:22,650 - INFO - GET request received for /agro endpoint
+2026-02-24 15:56:29,040 - INFO - GET request received for /agro endpoint
+2026-02-24 15:58:01,641 - INFO - GET request received for /agro endpoint
+2026-02-24 15:58:43,412 - INFO - GET request received for /agro endpoint
+2026-02-24 16:00:22,009 - INFO - GET request received for /agro endpoint
+2026-02-24 16:01:44,573 - INFO - POST request received for /produtor endpoint
+2026-02-24 16:01:51,279 - INFO - GET request received for /agro endpoint
+2026-02-24 16:14:05,705 - INFO - GET request received for /propriedades endpoint
+2026-02-24 16:14:05,724 - ERROR - Database error occurred: column "area_preservada_ha" does not exist
+LINE 1: ...r, numero_ccir, municipio, estado, area_total_ha, area_prese...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "propriedades.area_preservacao_ha".
+
+2026-02-24 16:16:00,333 - INFO - GET request received for /propriedades endpoint
+2026-02-24 16:16:00,351 - ERROR - Database error occurred: column "area_preservada_ha" does not exist
+LINE 1: ...r, numero_ccir, municipio, estado, area_total_ha, area_prese...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "propriedades.area_preservacao_ha".
+
+2026-02-24 16:19:03,936 - INFO - GET request received for /propriedades endpoint
+2026-02-25 08:29:11,431 - INFO - GET request received for /talhoes endpoint
+2026-02-25 08:29:12,665 - INFO - GET request received for /talhoes endpoint
+2026-02-25 08:40:06,270 - INFO - GET request received for /propriedades endpoint
+2026-02-25 08:40:08,961 - INFO - GET request received for /safras endpoint
+2026-02-25 08:40:24,987 - INFO - GET request received for /agro endpoint
+2026-02-26 07:23:29,889 - INFO - GET request received for /agro endpoint
+2026-02-26 07:23:34,006 - INFO - GET request received for /agro endpoint
+2026-02-26 07:23:40,506 - INFO - GET request received for /agro/1 endpoint
+2026-02-26 07:23:40,530 - ERROR - Database error occurred: invalid input syntax for type uuid: "1"
+LINE 1: ...o, telefone, email, criado_em FROM produtores WHERE id = '1'
+                                                                    ^
+
+2026-02-26 07:23:43,769 - INFO - GET request received for /agro endpoint
+2026-02-26 07:23:49,919 - INFO - GET request received for /agro/c0f957bf-e475-4d4b-a928-1614a1395e69 endpoint
+2026-02-26 07:25:38,036 - INFO - GET request received for /propriedades endpoint
+2026-02-26 07:25:38,935 - INFO - GET request received for /propriedades endpoint
+2026-02-26 07:25:42,253 - INFO - GET request received for /propriedades/1 endpoint
+2026-02-26 07:25:42,278 - ERROR - Database error occurred: invalid input syntax for type uuid: "1"
+LINE 5:                 FROM propriedades WHERE id = '1'
+                                                     ^
+
+2026-02-26 07:25:47,940 - INFO - GET request received for /propriedades endpoint
+2026-02-26 07:26:56,612 - INFO - GET request received for /talhoes endpoint
+2026-02-26 07:26:59,609 - INFO - GET request received for /propriedades endpoint
+2026-02-26 07:27:00,641 - INFO - GET request received for /propriedades endpoint
+2026-02-26 07:30:40,239 - INFO - GET request received for /talhoes endpoint
+2026-02-26 07:58:02,571 - INFO - GET request received for /agro endpoint
+2026-02-26 07:58:09,276 - INFO - POST request received for /produtor endpoint
+2026-02-26 07:58:09,287 - ERROR - Database error occurred: null value in column "id" of relation "produtores" violates not-null constraint
+DETAIL:  Failing row contains (null, Ana Banana da Silva, 584321976411, 123456789, Proprietário, (83) 98765-4321, anabanana@gmail.com, 2024-06-01T12:00:20Z).
+
+2026-02-26 08:03:29,706 - INFO - POST request received for /produtor endpoint
+2026-02-26 08:03:29,707 - ERROR - Validation error: {'criado_em': ['Unknown field.']}
+2026-02-26 08:07:25,278 - INFO - POST request received for /produtores endpoint
+2026-02-26 08:07:32,981 - INFO - POST request received for /produtores endpoint
+2026-02-26 08:07:32,991 - ERROR - Database error: null value in column "id" of relation "produtores" violates not-null constraint
+DETAIL:  Failing row contains (null, Ana Banana da Silva, 584321976411, 123456789, Proprietário, (83) 98765-4321, anabanana@gmail.com, null).
+
+2026-02-26 08:14:33,907 - INFO - Banco de dados sincronizado com sucesso.
+2026-02-26 08:14:35,672 - INFO - Banco de dados sincronizado com sucesso.
+2026-02-26 08:14:38,607 - INFO - Banco de dados sincronizado com sucesso.
+2026-02-26 08:14:41,548 - INFO - Banco de dados sincronizado com sucesso.
+2026-02-26 08:14:46,374 - INFO - POST request received for /produtores endpoint
+2026-02-26 08:14:46,388 - ERROR - Database error: null value in column "id" of relation "produtores" violates not-null constraint
+DETAIL:  Failing row contains (null, Ana Banana da Silva, 584321976411, 123456789, Proprietário, (83) 98765-4321, anabanana@gmail.com, null).
+
+2026-02-26 08:14:55,882 - INFO - POST request received for /produtores endpoint
+2026-02-26 08:14:55,894 - ERROR - Database error: null value in column "id" of relation "produtores" violates not-null constraint
+DETAIL:  Failing row contains (null, Ana Banana da Silva, 584321976411, 123456789, Proprietário, (83) 98765-4321, anabanana@gmail.com, null).
+
+2026-02-26 08:18:13,437 - INFO - Banco de dados sincronizado com sucesso.
+2026-02-26 08:18:19,860 - INFO - Banco de dados sincronizado com sucesso.
+2026-02-26 08:18:20,425 - INFO - Banco de dados sincronizado com sucesso.
+2026-02-26 08:18:29,661 - INFO - POST request received for /produtores endpoint
+2026-02-26 08:19:26,150 - INFO - GET request received for /produtores endpoint
+2026-02-26 08:19:52,008 - INFO - GET request received for /produtores/1
+2026-02-26 08:20:34,511 - INFO - PUT request received for /produtores/1
+2026-02-26 08:20:39,116 - INFO - GET request received for /produtores endpoint
+2026-02-26 08:21:10,727 - INFO - DELETE request received for /produtores/1
+2026-02-26 08:21:15,646 - INFO - GET request received for /produtores endpoint
+2026-02-26 08:21:18,421 - INFO - GET request received for /produtores/1
+2026-02-26 08:21:26,291 - INFO - POST request received for /produtores endpoint
+2026-02-26 08:21:34,212 - INFO - GET request received for /propriedades endpoint
+2026-02-26 08:22:26,599 - INFO - POST request received for /propriedades endpoint
+2026-02-26 08:22:26,612 - ERROR - Database error: insert or update on table "propriedades" violates foreign key constraint "propriedades_produtor_id_fkey"
+DETAIL:  Key (produtor_id)=(1) is not present in table "produtores".
+
+2026-02-26 08:22:35,686 - INFO - POST request received for /propriedades endpoint
+2026-02-26 08:22:39,268 - INFO - GET request received for /propriedades endpoint
+2026-02-26 08:23:02,304 - INFO - POST request received for /talhoes endpoint
+2026-02-26 08:23:02,317 - ERROR - Database error: insert or update on table "talhoes" violates foreign key constraint "talhoes_propriedade_id_fkey"
+DETAIL:  Key (propriedade_id)=(1) is not present in table "propriedades".
+
+2026-02-26 08:23:14,525 - INFO - POST request received for /talhoes endpoint
+2026-02-26 08:23:40,339 - INFO - POST request received for /safras endpoint
+2026-02-26 08:23:40,354 - ERROR - Database error: insert or update on table "safras" violates foreign key constraint "safras_talhao_id_fkey"
+DETAIL:  Key (talhao_id)=(1) is not present in table "talhoes".
+
+2026-02-26 08:23:45,168 - INFO - POST request received for /safras endpoint
+2026-02-26 08:24:15,065 - INFO - GET request received for /safras endpoint
+2026-02-26 08:24:19,928 - INFO - GET request received for /safras/2
+2026-02-26 08:24:42,436 - INFO - PUT request received for /safras/2
+2026-02-26 08:24:47,174 - INFO - GET request received for /safras endpoint
+2026-02-26 08:27:55,272 - INFO - GET request received for /propriedades/1
+2026-02-26 08:27:58,479 - INFO - GET request received for /propriedades/2
+2026-02-26 08:28:07,371 - INFO - GET request received for /produtores endpoint
+2026-02-26 08:28:13,225 - INFO - POST request received for /produtores endpoint
+2026-02-26 08:28:13,235 - ERROR - Database error: duplicate key value violates unique constraint "produtores_documento_key"
+DETAIL:  Key (documento)=(584321976411) already exists.
+
+2026-02-26 15:02:18,025 - INFO - Banco de dados sincronizado com sucesso.
+2026-02-26 15:02:18,577 - INFO - Banco de dados sincronizado com sucesso.
+2026-02-26 15:02:24,767 - INFO - GET request received for /produtores endpoint
+2026-02-26 15:02:25,689 - INFO - GET request received for /produtores endpoint
+2026-02-26 15:02:33,345 - INFO - GET request received for /produtores/1
+2026-02-26 15:02:37,252 - INFO - GET request received for /produtores/2
+2026-02-26 15:02:58,689 - INFO - Banco de dados sincronizado com sucesso.
+2026-02-26 15:03:07,516 - INFO - Banco de dados sincronizado com sucesso.
+2026-02-26 15:03:17,349 - INFO - Banco de dados sincronizado com sucesso.
+2026-02-26 15:03:22,091 - INFO - Banco de dados sincronizado com sucesso.
+2026-02-26 15:03:27,941 - INFO - Banco de dados sincronizado com sucesso.
+2026-02-26 15:03:47,787 - INFO - Banco de dados sincronizado com sucesso.
+2026-02-26 15:04:00,782 - INFO - Banco de dados sincronizado com sucesso.
+2026-02-26 15:04:04,644 - INFO - Banco de dados sincronizado com sucesso.
+2026-02-26 15:14:00,813 - INFO - POST request received for /produtores endpoint

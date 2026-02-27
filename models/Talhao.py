@@ -15,12 +15,14 @@ class Talhao(db.Model):
     identificacao: Mapped[str] = mapped_column(String(255), nullable=False)
     area_cultivavel_ha: Mapped[float] = mapped_column(
         Numeric(12, 2), nullable=False)
+    cultura: Mapped[str] = mapped_column(String(100), nullable=False)
     tipo_solo: Mapped[str] = mapped_column(String(100), nullable=True)
 
-    def __init__(self, propriedade_id, identificacao, area_cultivavel_ha, tipo_solo=None):
+    def __init__(self, propriedade_id, identificacao, area_cultivavel_ha, cultura, tipo_solo=None):
         self.propriedade_id = propriedade_id
         self.identificacao = identificacao
         self.area_cultivavel_ha = area_cultivavel_ha
+        self.cultura = cultura
         self.tipo_solo = tipo_solo
 
     def __repr__(self):
@@ -32,6 +34,7 @@ class Talhao(db.Model):
             'propriedade_id': self.propriedade_id,
             'identificacao': self.identificacao,
             'area_cultivavel_ha': float(self.area_cultivavel_ha),
+            'cultura': self.cultura,
             'tipo_solo': self.tipo_solo
         }
 
@@ -42,4 +45,5 @@ class TalhaoSchema(Schema):
     identificacao = fields.Str(
         required=True, validate=validate.Length(max=255))
     area_cultivavel_ha = fields.Float(required=True)
+    cultura = fields.Str(required=True, validate=validate.Length(max=100))
     tipo_solo = fields.Str(validate=validate.Length(max=100), allow_none=True)

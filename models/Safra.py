@@ -12,7 +12,6 @@ class Safra(db.Model):
     talhao_id: Mapped[int] = mapped_column(Integer, ForeignKey(
         'talhoes.id', ondelete='CASCADE'), nullable=False)
 
-    cultura: Mapped[str] = mapped_column(String(255), nullable=False)
     variedade: Mapped[str] = mapped_column(String(255), nullable=True)
     data_plantio_estimada: Mapped[str] = mapped_column(
         String(255), nullable=True)
@@ -21,23 +20,21 @@ class Safra(db.Model):
     expectativa_producao: Mapped[float] = mapped_column(
         Numeric(12, 2), nullable=True)
 
-    def __init__(self, talhao_id, cultura, variedade=None, data_plantio_estimada=None,
+    def __init__(self, talhao_id, variedade=None, data_plantio_estimada=None,
                  data_colheita_estimada=None, expectativa_producao=None):
         self.talhao_id = talhao_id
-        self.cultura = cultura
         self.variedade = variedade
         self.data_plantio_estimada = data_plantio_estimada
         self.data_colheita_estimada = data_colheita_estimada
         self.expectativa_producao = expectativa_producao
 
     def __repr__(self):
-        return f"<Safra(id={self.id}, cultura='{self.cultura}')>"
+        return f"<Safra(id={self.id}, talhao_id={self.talhao_id})>"
 
     def to_dict(self):
         return {
             'id': self.id,
             'talhao_id': self.talhao_id,
-            'cultura': self.cultura,
             'variedade': self.variedade,
             'data_plantio_estimada': self.data_plantio_estimada,
             'data_colheita_estimada': self.data_colheita_estimada,
@@ -48,7 +45,6 @@ class Safra(db.Model):
 class SafraSchema(Schema):
     id = fields.Int(dump_only=True)
     talhao_id = fields.Int(required=True)
-    cultura = fields.Str(required=True, validate=validate.Length(max=255))
     variedade = fields.Str(validate=validate.Length(max=255), allow_none=True)
     data_plantio_estimada = fields.Str(
         validate=validate.Length(max=255), allow_none=True)
