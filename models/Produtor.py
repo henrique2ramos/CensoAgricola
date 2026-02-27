@@ -1,5 +1,6 @@
 from datetime import datetime
 from marshmallow import Schema, fields, validate
+from marshmallow import validates_schema, ValidationError
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import String, Integer, DateTime, func
 from helpers.database import db
@@ -33,10 +34,13 @@ class Produtor(db.Model):
         return f"<Produtor(id={self.id}, nome='{self.nome_razao_social}')>"
 
     def to_dict(self):
+        documento_numerico = ''.join(filter(str.isdigit, self.documento or ''))
         return {
             'id': self.id,
             'nome_razao_social': self.nome_razao_social,
             'documento': self.documento,
+            'cpf': self.documento if len(documento_numerico) == 11 else None,
+            'cnpj': self.documento if len(documento_numerico) == 14 else None,
             'inscricao_estadual': self.inscricao_estadual,
             'tipo_vinculo': self.tipo_vinculo,
             'telefone': self.telefone,
@@ -49,10 +53,34 @@ class ProdutorSchema(Schema):
     id = fields.Int(dump_only=True)
     nome_razao_social = fields.Str(
         required=True, validate=validate.Length(max=255))
-    documento = fields.Str(required=True, validate=validate.Length(max=255))
+    documento = fields.Str(validate=validate.Length(max=255), allow_none=True)
+    cpf = fields.Str(validate=validate.Length(max=14), allow_none=True)
+    cnpj = fields.Str(validate=validate.Length(max=18), allow_none=True)
     inscricao_estadual = fields.Str(
         validate=validate.Length(max=255), allow_none=True)
     tipo_vinculo = fields.Str(required=True, validate=validate.Length(max=255))
     telefone = fields.Str(validate=validate.Length(max=255), allow_none=True)
     email = fields.Email(validate=validate.Length(max=255), allow_none=True)
     criado_em = fields.DateTime(dump_only=True)
+
+    @validates_schema
+    def validate_documento_identificacao(self, data, **kwargs):
+        partial = kwargs.get('partial', False)
+        if partial:
+            return
+
+        documento = data.get('documento')
+        cpf = data.get('cpf')
+        cnpj = data.get('cnpj')
+
+        if not documento and not cpf and not cnpj:
+            raise ValidationError(
+                "Informe um documento: CPF ou CNPJ.",
+                field_name="documento"
+            )
+
+        if cpf and cnpj:
+            raise ValidationError(
+                "Informe apenas um dos campos: CPF ou CNPJ.",
+                field_name="cpf"
+            )
